@@ -1,0 +1,17 @@
+name: Comprobacion de Tokens
+
+on: [push]
+
+jobs:
+  comparar-tokens:
+    runs-on: self-hosted
+    steps:
+      - name: Validar DEV_TOKEN vs LOCAL_DEV_TOKEN
+        run: |
+          if ("${{ secrets.DEV_TOKEN }}" -eq $env:LOCAL_DEV_TOKEN) {
+            Write-Host "¡Éxito! El secret de GitHub y la variable local coinciden."
+            exit 0
+          } else {
+            Write-Host "Error: Los tokens no coinciden."
+            exit 1
+          }
