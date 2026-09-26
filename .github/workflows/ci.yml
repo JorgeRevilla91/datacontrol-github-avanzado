@@ -36,7 +36,7 @@ jobs:
       - name: Validar DEV_TOKEN
         env:
           DEV_TOKEN: ${{ secrets.DEV_TOKEN }}
-          shell: bash
+        shell: bash
         run: |
           if [ "$DEV_TOKEN" == "$LOCAL_DEV_TOKEN" ]; then
             echo "Validación de DEV_TOKEN exitosa."
