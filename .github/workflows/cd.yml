@@ -39,7 +39,7 @@ jobs:
       - name: Validar PROD_TOKEN
         env:
           PROD_TOKEN: ${{ secrets.PROD_TOKEN }}
-          shell: bash
+        shell: bash
         run: |
           if [ "$PROD_TOKEN" == "$LOCAL_PROD_TOKEN" ]; then
             echo "Validación de PROD_TOKEN exitosa."
